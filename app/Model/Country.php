@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Model\Location;
 use App\Model\State;
+use App\Model\City;
 
 class Country extends Model
 {
@@ -21,5 +22,10 @@ class Country extends Model
     public function states()
     {
         return $this->hasMany(State::class);
+    }
+
+    public function cities()
+    {
+        return $this->hasManyThrough(City::class, State::class);
     }
 }
