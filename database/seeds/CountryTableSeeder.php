@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 use App\Model\Country;
 
-class CountrySeeder extends Seeder
+class CountryTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -24,7 +24,7 @@ class CountrySeeder extends Seeder
         {
             if(Country::where('name', '=', $value['name'])->count())
             {
-                $country = Country::where('email', '=', $value['name'])->first();
+                $country = Country::where('name', '=', $value['name'])->first();
                 $country->update($value);
             }
             else
